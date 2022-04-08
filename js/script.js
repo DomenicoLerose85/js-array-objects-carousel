@@ -67,15 +67,15 @@ for (let i = 0; i < places.length; i++) {
   <div class="item ${places}">
     <img src="${places[i].img}" />
       <div class="title">
-        <h2>${country[i].country}</h2>
-        <p>${description[i].description}</p>
+        <h2>${[i].country}</h2>
+        <p>${[i].description}</p>
       </div>
   </div>`;
   thumbTemplate += `
   <div class="thumb ${thumbTemplate}">
     <img src="${places[i].img}" alt="" />
-  </div>`;
-}
+  </div>`
+};
 console.log(thumbTemplate);
 
 // metto in due variabili rispettivamente i contenitori che si trovano nell'html
