@@ -11,33 +11,33 @@ creare un carosello come nella foto allegata.
 
 let places = [
   {
-    'img' : 'img/01.jpg',
-    'country' : 'Svezia',
-    'description': 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.',
+    img : 'img/01.jpg',
+    country : 'Svezia',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.',
 
   },
   {
-    'img' : 'img/02.jpg',
-    'country' : 'Svizzera',
-    'description': 'Lorem ipsum',
+    img : 'img/02.jpg',
+    country : 'Svizzera',
+    description: 'Lorem ipsum',
 
   },
   {
-    'img' : 'img/03.jpg',
-    'country' : 'Gran Bretagna',
-    'description': 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
+    img : 'img/03.jpg',
+    country : 'Gran Bretagna',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
 
   },
   {
-    'img' : 'img/04.jpg',
-    'country' : 'Germania',
-    'description': 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
+    img : 'img/04.jpg',
+    country : 'Germania',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 
   },
   {
-    'img' : 'img/05.jpg',
-    'country' : 'Paradise',
-    'description': 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
+    img : 'img/05.jpg',
+    country : 'Paradise',
+    description: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 
   },
 
@@ -65,15 +65,15 @@ for (let i = 0; i < places.length; i++) {
   }
   placesTemplate += `
   <div class="item ${places}">
-    <img src="${places[i]}" />
+    <img src="${places[i].img}" />
       <div class="title">
-        <h2>${country[i]}</h2>
-        <p>${description[i]}</p>
+        <h2>${country[i].country}</h2>
+        <p>${description[i].description}</p>
       </div>
   </div>`;
   thumbTemplate += `
   <div class="thumb ${thumbTemplate}">
-    <img src="${img[i]}" alt="" />
+    <img src="${places[i].img}" alt="" />
   </div>`;
 }
 console.log(thumbTemplate);
@@ -109,12 +109,13 @@ if (currentIndexActive === 4) {
   } else {
    currentIndexActive++;
 }
+slideDown();
+
 console.log(currentIndexActive);
-imgs[currentIndexActive].classList.add("active");
+img[currentIndexActive].classList.add("active");
 console.log(currentIndexActive);
 thumbs[currentIndexActive].classList.add("active");
 
-slideDown();
 
 function slideUp() {
     const imgs = document.getElementsByClassName("item");
