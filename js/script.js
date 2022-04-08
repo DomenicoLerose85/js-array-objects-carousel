@@ -43,24 +43,10 @@ let places = [
 
 ];
 console.log(places);
-
-// const items = [
-//   "img/01.jpg",
-//   "img/02.jpg",
-//   "img/03.jpg",
-//   "img/04.jpg",
-//   "img/05.jpg"
-// ];
-
-// const title = ["Svezia", "Svizzera", "Gran Bretagna", "Germania", "Paradise"];
-
-// const text = [
-//   "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.",
-//   "Lorem ipsum",
-//   "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-//   "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,",
-//   "Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,"
-// ];
+let country = "";
+let description = "";
+let img = "";
+let item
 
 //variabile per raccogliere tutto l'html che va in items-container
 let placesTemplate = "";
@@ -77,71 +63,76 @@ for (let i = 0; i < places.length; i++) {
   if (i === currentIndexActive) {
     classActive = "active";
   }
-  itemTemplate += `
-  <div class="item ${classActive}">
+  placesTemplate += `
+  <div class="item ${places}">
     <img src="${places[i]}" />
       <div class="title">
-        <h2>${title[i]}</h2>
-        <p>${text[i]}</p>
+        <h2>${country[i]}</h2>
+        <p>${description[i]}</p>
       </div>
   </div>`;
   thumbTemplate += `
-  <div class="thumb ${classActive}">
-    <img src="${items[i]}" alt="" />
+  <div class="thumb ${thumbTemplate}">
+    <img src="${img[i]}" alt="" />
   </div>`;
 }
-//console.log(thumbTemplate);
+console.log(thumbTemplate);
 
 // metto in due variabili rispettivamente i contenitori che si trovano nell'html
-const itemsContainer = document.querySelector(".items-container");
-const thumbsContainer = document.querySelector(".thumbs-container");
-//console.log(itemContainer);
+ const itemsContainer = document.querySelector(".items-container");
+ const thumbsContainer = document.querySelector(".thumbs-container");
+// //console.log(itemContainer);
 
-//stampo l'html corrispondente nei due contenitori
-itemsContainer.innerHTML = itemTemplate;
-thumbsContainer.innerHTML += thumbTemplate;
-//document.querySelector(".item").classList.add("active");
+// //stampo l'html corrispondente nei due contenitori
+ itemsContainer.innerHTML += placesTemplate;
+ thumbsContainer.innerHTML += thumbTemplate;
+ document.querySelector(".item").classList.add("active");
 
-//Pulsanti
-//.next .fa-circle-chevron-down
-//.prev .fa-circle-chevron-up
-//metto nelle variabili next e prev i due pulsanti
+// //Pulsanti
+// .next .fa-circle-chevron-down
+// .prev .fa-circle-chevron-up
+// //metto nelle variabili next e prev i due pulsanti
 const next = document.querySelector(" .fa-circle-chevron-down");
 const prev = document.querySelector(" .fa-circle-chevron-up");
-//console.log(next, prev);
+console.log(next, prev);
+
 function slideDown() {
-  //prendere immagine con currentIndexActive e togliere classe active
-  const imgs = document.getElementsByClassName("item");
-  imgs[currentIndexActive].classList.remove("active");
-  const thumbs = document.getElementsByClassName("thumb");
-  thumbs[currentIndexActive].classList.remove("active");
-  //console.log(imgs);
-  if (currentIndexActive === 4) {
+//   //prendere immagine con currentIndexActive e togliere classe active
+const imgs = document.getElementsByClassName("item");
+imgs[currentIndexActive].classList.remove("active");
+const thumbs = document.getElementsByClassName("thumb");
+thumbs[currentIndexActive].classList.remove("active");
+};
+console.log(imgs);
+if (currentIndexActive === 4) {
     currentIndexActive = 0;
   } else {
-    currentIndexActive++;
-  }
-  //console.log(currentIndexActive);
-  imgs[currentIndexActive].classList.add("active");
-  //console.log(currentIndexActive);
-  thumbs[currentIndexActive].classList.add("active");
+   currentIndexActive++;
 }
+console.log(currentIndexActive);
+imgs[currentIndexActive].classList.add("active");
+console.log(currentIndexActive);
+thumbs[currentIndexActive].classList.add("active");
+}
+slideDown();
+
 function slideUp() {
-  const imgs = document.getElementsByClassName("item");
-  imgs[currentIndexActive].classList.remove("active");
-  const thumbs = document.getElementsByClassName("thumb");
-  thumbs[currentIndexActive].classList.remove("active");
-  //console.log(imgs);
-  if (currentIndexActive === 0) {
-    currentIndexActive = items.length - 1;
-  } else {
-    currentIndexActive--;
-  }
-  //console.log(currentIndexActive);
-  imgs[currentIndexActive].classList.add("active");
-  //console.log(currentIndexActive);
-  thumbs[currentIndexActive].classList.add("active");
+    const imgs = document.getElementsByClassName("item");
+    imgs[currentIndexActive].classList.remove("active");
+    const thumbs = document.getElementsByClassName("thumb");
+    thumbs[currentIndexActive].classList.remove("active");
+console.log(imgs);
+ if (currentIndexActive === 0) {
+   currentIndexActive = items.length - 1;
+} else {
+   currentIndexActive--;
 }
+console.log(currentIndexActive);
+imgs[currentIndexActive].classList.add("active");
+console.log(currentIndexActive);
+thumbs[currentIndexActive].classList.add("active");
+}
+slideUp();
 
 next.addEventListener("click", slideDown);
 prev.addEventListener("click", slideUp);
