@@ -113,7 +113,7 @@ console.log(currentIndexActive);
 imgs[currentIndexActive].classList.add("active");
 console.log(currentIndexActive);
 thumbs[currentIndexActive].classList.add("active");
-}
+
 slideDown();
 
 function slideUp() {
