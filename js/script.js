@@ -7,28 +7,63 @@ Dati tre array contenenti:
 creare un carosello come nella foto allegata.
 */
 
+// array con objects
 
+let places = [
+  {
+    'img' : 'img/01.jpg',
+    'country' : 'Svezia',
+    'description': 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.',
 
-const items = [
-  "img/01.jpg",
-  "img/02.jpg",
-  "img/03.jpg",
-  "img/04.jpg",
-  "img/05.jpg"
+  },
+  {
+    'img' : 'img/02.jpg',
+    'country' : 'Svizzera',
+    'description': 'Lorem ipsum',
+
+  },
+  {
+    'img' : 'img/03.jpg',
+    'country' : 'Gran Bretagna',
+    'description': 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
+
+  },
+  {
+    'img' : 'img/04.jpg',
+    'country' : 'Germania',
+    'description': 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
+
+  },
+  {
+    'img' : 'img/05.jpg',
+    'country' : 'Paradise',
+    'description': 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
+
+  },
+
 ];
+console.log(places);
 
-const title = ["Svezia", "Svizzera", "Gran Bretagna", "Germania", "Paradise"];
+// const items = [
+//   "img/01.jpg",
+//   "img/02.jpg",
+//   "img/03.jpg",
+//   "img/04.jpg",
+//   "img/05.jpg"
+// ];
 
-const text = [
-  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.",
-  "Lorem ipsum",
-  "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,",
-  "Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,"
-];
+// const title = ["Svezia", "Svizzera", "Gran Bretagna", "Germania", "Paradise"];
+
+// const text = [
+//   "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.",
+//   "Lorem ipsum",
+//   "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+//   "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,",
+//   "Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,"
+// ];
 
 //variabile per raccogliere tutto l'html che va in items-container
-let itemTemplate = "";
+let placesTemplate = "";
 
 //variabile per raccogliere tutto l'html che va in thumbs-container
 let thumbTemplate = "";
@@ -37,14 +72,14 @@ let thumbTemplate = "";
 let currentIndexActive = 0;
 
 //eseguo il ciclo for sull'array delle immagini (items) e popolo l'html delle due varibaili da stampare nei due contenitori (immagini e thumbnails)
-for (let i = 0; i < items.length; i++) {
+for (let i = 0; i < places.length; i++) {
   let classActive = "";
   if (i === currentIndexActive) {
     classActive = "active";
   }
   itemTemplate += `
   <div class="item ${classActive}">
-    <img src="${items[i]}" />
+    <img src="${places[i]}" />
       <div class="title">
         <h2>${title[i]}</h2>
         <p>${text[i]}</p>
